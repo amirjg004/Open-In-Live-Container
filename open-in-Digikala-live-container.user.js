@@ -2,7 +2,7 @@
 // @name         Open in Digikala Live Container
 // @version      1.0.0
 // @author       amir
-// @match        *://*.digikala.com/*
+// @match        digikala://
 // @downloadURL  https://github.com/amirjg004/Open-In-Live-Container/raw/refs/heads/main/open-in-Digikala-live-container.user.js
 // @updateURL    https://github.com/amirjg004/Open-In-Live-Container/raw/refs/heads/main/open-in-Digikala-live-container.user.js
 // @homepage     https://github.com/amirjg004/Open-In-Apollo-Live-Container/tree/main
