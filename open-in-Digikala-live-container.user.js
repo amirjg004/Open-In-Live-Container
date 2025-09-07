@@ -1,29 +1,54 @@
 // ==UserScript==
 // @name         Open in Digikala Live Container
-// @version      1.0.0
-// @author       amir
-// @match        digikala://
-// @downloadURL  https://github.com/amirjg004/Open-In-Live-Container/raw/refs/heads/main/open-in-Digikala-live-container.user.js
-// @updateURL    https://github.com/amirjg004/Open-In-Live-Container/raw/refs/heads/main/open-in-Digikala-live-container.user.js
-// @homepage     https://github.com/amirjg004/Open-In-Apollo-Live-Container/tree/main
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  Redirect digikala:// links to LiveContainer on iOS
+// @author       Based on nathandaven's scripts, modified for specific scheme
+// @match        *://*.digikala.com/*
+// @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
-// need to encode the string to base64 for live container link to work
-function utf8_to_b64(str) {
-  return window.btoa(unescape(encodeURIComponent(str)));
-}
+(function() {
+    'use strict';
 
-function openInDigikala() {
-  if (window.self !== window.top) return; // iframe
-  if (window.location.pathname === "/redirect") return; // Opening link in browser from app
+    function redirectToLiveContainer(url) {
+        if (url.startsWith('digikala://')) {
+            const encodedUrl = btoa(url);
+            window.location.href = `livecontainer://open-url?url=${encodedUrl}`;
+            return true;
+        }
+        return false;
+    }
 
-  window.location.href =
-    `livecontainer://open-web-page?url=` +
-    utf8_to_b64(
-      `digikala://${window.location.pathname.slice(1)}${window.location.search}${
-        window.location.hash
-      }`
-    );
-}
+    function processLinks() {
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('digikala://')) {
+                link.setAttribute('href', `javascript:void(0);`);
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    redirectToLiveContainer(href);
+                });
+            }
+        });
+    }
 
-openInDigikala();
+    // Observe DOM changes for dynamic content
+    const observer = new MutationObserver(processLinks);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initial process
+    processLinks();
+
+    // Global click listener for safety
+    document.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            const href = e.target.getAttribute('href');
+            if (href && redirectToLiveContainer(href)) {
+                e.preventDefault();
+            }
+        }
+    });
+})();
