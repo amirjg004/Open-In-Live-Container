@@ -1,0 +1,102 @@
+<!-- Spotify TV Application for roku roku-webkit-lts-1.1-ae77a26 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="icon" type="image/png" href="https://tv.scdn.co/roku/v2/ae77a26/images/icons/720/spotify-logo.png">
+    <meta name="viewport" content="width=1920,height=1080,initial-scale=1.0,user-scalable=no">
+    <title>Spotify</title>
+
+    
+    <script type="text/javascript">function t(){var t="DIAGNOSTICS_STORE_REDIRECT_URL",o="diagnosticsClearCache",i="diagnosticsRunRedirectCheck",s="diagnosticsSwitchRedirectUrl";function n(){return{has:function(t){return!!this.get(t)},get:function(t){if(this.queryStrParams)return this.queryStrParams[t]},set:function(t,r){t&&(this.queryStrParams||(this.queryStrParams={}),this.queryStrParams[t]=decodeURIComponent(r))},delete:function(t){this.queryStrParams&&delete this.queryStrParams[t]},toString:function(){var r=this;return this.queryStrParams?Object.keys(this.queryStrParams).map(function(t){return t+"="+encodeURIComponent(r.queryStrParams[t])}).join("&"):""},forEach:function(r){var e=this;r&&this.queryStrParams&&Object.keys(this.queryStrParams).forEach(function(t){r(e.queryStrParams[t],t)})}}}function c(r,t){t.split("&").forEach(function(t){t=t.split("=");r.set(t[0],t[1]||"")})}function u(t){if("undefined"!=typeof URLSearchParams&&"undefined"!=typeof URL&&new URL("http://spotify.com?param=10").searchParams)return new URL(t).searchParams;var r=n(),e=t.indexOf("?");if(0<=e){t=t.substring(e+1);if(0<t.length)try{var a=t.split("#")[0];a.length&&c(r,a)}catch(t){console.error("[DiagnosticsBootLoader] Could not parse queryString parameters: ",t)}}return r}function f(t){var t="undefined"!=typeof URL&&new URL("http://spotify.com?param=10#frag=30").hash?new URL(t).hash.slice(1):t.split("#")[1]||"",r=n();try{c(r,t)}catch(t){console.error("[DiagnosticsBootLoader] Could not parse queryString parameters: ",t)}return r}function h(t,r){var e=n();return t.forEach(function(t,r){e.set(r,t)}),r.forEach(function(t,r){e.set(r,t)}),e}function r(t,r){var e,a=u(t),n=(a.set(o,"false"),a.set(i,"false"),a.set("diagnosticsOriginalUrl",location.href),a.delete(s),f(t)),r=(r?(e=h(a,u(location.href)).toString(),h(n,f(location.href))):(e=a.toString(),n)).toString(),t=(n=0<=(n=(a=t).indexOf("?"))?a.substring(0,n):a).split("#")[0];location.href=t+(e?"?"+e:"")+(r?"#"+r:"")}try{var e,a,l=u(location.href);l.has(s)?(e=l.get(s),localStorage.setItem(t,e),r(e)):!(a=localStorage.getItem(t))||l.has(i)&&"true"!==l.get(i)?l.has(o)&&"true"===l.get(o)&&localStorage.removeItem(t):r(a,!0)}catch(t){console.error("[DiagnosticsBootLoader] Failed: ",t)}}t();</script>
+
+    
+
+    
+    <script type="text/javascript">!function(e){function n(e,n){for(var t=0,r=o.length,a=[];t<r;t++)o[t][e]===n&&a.push(o[t]);return a}function t(e,n){for(var t,r=o.length;r--;)(t=o[r]).entryType!==e||void 0!==n&&t.name!==n||o.splice(r,1)}var r=Date.now?Date.now():+new Date,a=e.performance||{},o=[],i={};a.now||(a.now=a.webkitNow||a.mozNow||a.msNow||function(){return(Date.now?Date.now():+new Date)-r}),a.mark||(a.mark=a.webkitMark||function(e){var n={name:e,entryType:"mark",startTime:a.now(),duration:0};o.push(n),i[e]=n}),a.measure||(a.measure=a.webkitMeasure||function(e,n,t){n=i[n].startTime,t=i[t].startTime,o.push({name:e,entryType:"measure",startTime:n,duration:t-n})}),a.getEntriesByType||(a.getEntriesByType=a.webkitGetEntriesByType||function(e){return n("entryType",e)}),a.getEntriesByName||(a.getEntriesByName=a.webkitGetEntriesByName||function(e){return n("name",e)}),a.clearMarks||(a.clearMarks=a.webkitClearMarks||function(e){t("mark",e)}),a.clearMeasures||(a.clearMeasures=a.webkitClearMeasures||function(e){t("measure",e)}),e.performance=a,"function"==typeof define&&(define.amd||define.ajs)&&define("performance",[],function(){return a}),"object"==typeof module&&module.exports&&(module.exports=a)}(window);</script><script type="text/javascript">window.performance.mark("mark_start");</script>
+    <script type="text/javascript">var __version='roku-webkit-lts-1.1-ae77a26';var __revision='ae77a26';var __basePath='https://tv.scdn.co/roku/v2/ae77a26/';</script>
+    <script type='text/javascript'>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-5784146-53', 'auto', {'sampleRate': 10});</script>
+    <style type="text/css">
+
+      html,
+      body {
+        height: 100%;
+        overflow-y: hidden;
+      }
+
+      body.loading {
+        position: relative;
+      }
+
+      body.loading #loadingScreen {
+        opacity: 1;
+        transition: none;
+      }
+
+      body.loading > #loadingScreen > .spotifyLogo {
+        display: block;
+      }
+
+      #loadingScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2E2F33;
+        opacity: 0;
+        transition: opacity, 2s;
+        pointer-events: none;
+      }
+
+      #loadingScreen #errorField {
+        color: #DFE1E5;
+        font-family: 'Circular Book';
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 35%;
+        text-align: center;
+        width: 100%;
+      }
+
+      #loadingScreen #errorCode {
+        color: #DFE1E5;
+        font-family: 'Circular Book';
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 30%;
+        text-align: center;
+        width: 100%;
+      }
+
+      #loadingScreen > .spotifyLogo {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 288px;
+        height: 88px;
+      }
+    </style>
+  <script defer src="https://tv.scdn.co/roku/v2/ae77a26/js/vendors.da35f121f15a85ec1be4.js"></script><script defer src="https://tv.scdn.co/roku/v2/ae77a26/js/spotifytv.js"></script><link href="https://tv.scdn.co/roku/v2/ae77a26/css/spotifytv.css" rel="stylesheet"></head>
+
+  <body class="loading">
+    <div id="root"></div>
+    <div id="loadingScreen">
+      <img
+        class="spotifyLogo"
+        src="https://tv.scdn.co/roku/v2/ae77a26/images/loading-screen-spotify-logo.png"
+        srcset="https://tv.scdn.co/roku/v2/ae77a26/images/loading-screen-spotify-logo@2x.png 2x"
+      />
+      <p id="errorField"></p>
+      <p id="errorCode"></p>
+    </div>
+    <div id="media-container" class="media-container"></div>
+  </body>
+</html>
